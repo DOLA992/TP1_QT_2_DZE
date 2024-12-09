@@ -11,10 +11,12 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -23,7 +25,10 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QToolButton *toolButton;
+    QPushButton *BtnSauvgarde;
+    QLabel *DernierCodeSaisi;
+    QLineEdit *Code;
+    QPushButton *BtnSupprimer;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -34,9 +39,18 @@ public:
         MainWindow->resize(800, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        toolButton = new QToolButton(centralwidget);
-        toolButton->setObjectName("toolButton");
-        toolButton->setGeometry(QRect(120, 210, 22, 22));
+        BtnSauvgarde = new QPushButton(centralwidget);
+        BtnSauvgarde->setObjectName("BtnSauvgarde");
+        BtnSauvgarde->setGeometry(QRect(100, 70, 91, 31));
+        DernierCodeSaisi = new QLabel(centralwidget);
+        DernierCodeSaisi->setObjectName("DernierCodeSaisi");
+        DernierCodeSaisi->setGeometry(QRect(250, 100, 49, 16));
+        Code = new QLineEdit(centralwidget);
+        Code->setObjectName("Code");
+        Code->setGeometry(QRect(100, 110, 113, 22));
+        BtnSupprimer = new QPushButton(centralwidget);
+        BtnSupprimer->setObjectName("BtnSupprimer");
+        BtnSupprimer->setGeometry(QRect(240, 70, 91, 31));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -54,7 +68,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        toolButton->setText(QCoreApplication::translate("MainWindow", "...", nullptr));
+        BtnSauvgarde->setText(QCoreApplication::translate("MainWindow", "Sauvegarder", nullptr));
+        DernierCodeSaisi->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        BtnSupprimer->setText(QCoreApplication::translate("MainWindow", "BtnSupprimer", nullptr));
     } // retranslateUi
 
 };
